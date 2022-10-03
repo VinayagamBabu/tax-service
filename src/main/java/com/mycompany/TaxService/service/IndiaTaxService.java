@@ -20,7 +20,8 @@ public class IndiaTaxService implements TaxService {
 	@Override
 	public double calculateTax(double prodcutPrice) {
 		double result = (prodcutPrice*(CGST_PERCENT + SGST_PERCENT) ) /100;
-		return result;
+		throw new NumberFormatException();
+		//return result;
 	}
 
 }
