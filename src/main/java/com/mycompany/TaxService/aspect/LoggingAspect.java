@@ -15,36 +15,36 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-	@Pointcut("execution(* com.mycompany.TaxService.controller.*.*(..))")
+	//@Pointcut("execution(* com.mycompany.TaxService.controller.*.*(..))")
 	//@Pointcut("execution(AccessSpecifier RetrunType Package.Class.Method(args))")
 	//@Pointcut("within(com.baeldung.pointcutadvice.dao.FooDao)") --  limits matching to join points of certain types
 	//@Pointcut("@target(org.springframework.stereotype.Repository)") -- limits to class with Annotations (custom)
 	//Pointcut expressions can be combined using &&, ||, and ! operators
 	private void ControllerPointCut() {}
 	
-	 @Before("ControllerPointCut()")
+	 //@Before("ControllerPointCut()")
 	 public void beforeAdvice(JoinPoint jp){
 		 System.out.println("In Controller Method :"+ jp.getSignature());
 	 }
 	 
-	 @After("ControllerPointCut()")
+	 //@After("ControllerPointCut()")
 	 public void afterAdvice(JoinPoint jp){
 		 System.out.println("In Controller Method After Method:"+ jp.getSignature());
 	 }
 	 
-	 @AfterReturning(pointcut = "ControllerPointCut()", returning="retVal")
+	 //@AfterReturning(pointcut = "ControllerPointCut()", returning="retVal")
 	 public void afterReturnAdvice(JoinPoint jp,Object retVal){
 		 System.out.println("In Controller Method After Return:"+ jp.getSignature());
 		 System.out.println("In Controller Method After Return value:"+ retVal);
 	 }
 	 
-	 @AfterThrowing(pointcut = "execution(* com.mycompany.TaxService.controller.*.*(..))",throwing = "error")
+	 //@AfterThrowing(pointcut = "execution(* com.mycompany.TaxService.controller.*.*(..))",throwing = "error")
 	 public void afterThrowingAdvice(JoinPoint jp, Throwable error){
 	    System.out.println("Method Signature: "  + jp.getSignature());  
 	    System.out.println("Exception: "+error);  
 	 }
 	 
-	 @Around(argNames = "pointcut", value = "execution(* com.mycompany.TaxService.service.*.*(..))")
+	 //@Around(argNames = "pointcut", value = "execution(* com.mycompany.TaxService.service.*.*(..))")
 	 public void aroundAdvice(ProceedingJoinPoint jp){
 	    System.out.println("Around advice");
 	    Object[] args = jp.getArgs();

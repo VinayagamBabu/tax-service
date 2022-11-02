@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.mycompany.TaxService.service.TaxService;
 
@@ -16,12 +15,12 @@ import com.mycompany.TaxService.service.TaxService;
 public class TaxController {
 	
 	@Autowired //Setter Injection
-	TaxService indiaTaxService;
+	TaxService taxService;
 	
 	@RequestMapping("/getTax")
 	@ResponseBody
 	public double getTax( @RequestParam("price") double price) {
-		return indiaTaxService.calculateTax(price);
+		return taxService.calculateTax(price);
 	}
 	
 	
